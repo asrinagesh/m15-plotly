@@ -1,0 +1,42 @@
+---
+title: "index"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(plotly)
+library(dplyr)
+```
+
+## Car Data
+
+This is car data.
+
+```{r cars}
+data(cars)
+a <- list(
+  x = cars$speed,
+  y = cars$dist,
+  text = "Car Data",
+  xref = "Speed",
+  yref = "Distance",
+  showarrow = TRUE,
+  arrowhead = 7,
+  ax = 20,
+  ay = -40
+)
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+p <- plot_ly(mtcars, x = ~wt, y = ~mpg) %>%
+  add_markers() %>%
+  layout(annotations = a)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
